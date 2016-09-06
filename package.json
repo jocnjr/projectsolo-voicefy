@@ -1,0 +1,22 @@
+{
+  "name": "soloproject-voicefy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jocnjr/projectsolo-voicefy.git"
+  },
+  "author": "JOse Neves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jocnjr/projectsolo-voicefy/issues"
+  },
+  "homepage": "https://github.com/jocnjr/projectsolo-voicefy#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
