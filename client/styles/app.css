@@ -1,5 +1,14 @@
 /* || General layout rules for narrow screens */
 
+* {
+	box-sizing: border-box;
+}
+
+.tasks {
+  float: left;
+
+}
+
 html {
 	height: 100%;
 	font-family: sans-serif;
@@ -236,7 +245,7 @@ article button {
   display: block;
   width: 140px;
   height: 140px;
-  border-radius: 1px;
+  border-radius: 30px;
   margin: 0;
 }
 
@@ -245,15 +254,28 @@ article button {
   float: right;
   clear: both;
   font-style: normal;
-  color: #black;
+  color: #EEE;
+  font-size: 17px;
 }
 
-ul
-{
+ul {
   display: block;
   float: right;
   clear: both;
   font-style: normal;
-  color: #black;
+  color: #EEE;
   list-style-type: none;
+  font-size: 14px;
+  padding: 0px 30px;
+}
+
+/*li {
+  font-size:
+}*/
+
+.little-hr {
+	border-color: #EEE;
+	width: 1000px;
+	margin: 40px auto;
+	border-width: 1px 0 0;
 }

@@ -9,23 +9,28 @@
   Create a new task.<br>
   <form method="POST" action='/createTask'>
     <input name="title" type="text" placeholder="title"></input>
-    <input name="audioClip" type="upload" placeholder="audio"></input>
+    <input name="audioClip" type="upload" placeholder="description"></input>
     <input type="hidden" name="author" value="jocnjr"></input>
     <input type='submit' value="create">
   </form>
+  <div class="tasks">
       <ul>
     <% tasks.forEach(function(task) { %>
       <li>
-      <%= task.title %>
-      <%= task.audioClip %>      
+      <%= task.title %> - 
+      <%= task.audioClip %>
       </li>
     <% }) %>
     </ul>
-    <hr>
-    <ul>
+  </div>
+
+    <hr class="little-hr">
+    <ul class="profileUsername">
       <li>
-      <%= users[0].username %>
+      <%= users[0].username %> - 
       <%= users[0].password %>
+      </li>
+      <li>
       <img class="profile" src="<%= users[0].profileImage %>">      
       </li>
     </ul>
