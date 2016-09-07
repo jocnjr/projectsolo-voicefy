@@ -11,6 +11,7 @@ const cookieController = require('./server/util/cookieController');
 const sessionController = require('./server/session/sessionController');
 const taskController = require('./server/task/taskController');
 const request = require('request');
+// const audioApp = require('./server/audio/app');
 
 app.use(express.static(path.join(__dirname, './client')));
 
@@ -62,16 +63,15 @@ app.post('/createTask', taskController.createTask);
 app.get('/timeline', sessionController.isLoggedIn, function(req, res) {
 
   taskController.getAllTasks(function(err, tasks) {
-    var allUsers = [];
     userController.getAllUsers(function(err, users) {
-    if (err) throw err;
-    allUsers.push(users);
+      if (err) throw err;
+      // console.log('-------', users, allUsers, tasks);
+      res.render('./../client/timeline', { tasks: tasks, users: users });
     });
-    console.log(allUsers, tasks);
-    if (err) throw err;
-    res.render('./../client/timeline', { tasks: tasks, users: allUsers });
   });
 });
+
+// github integration
 
 app.get('/oauth', function(req, res) {
   var state = "thisismysoloproject";

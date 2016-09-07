@@ -2,6 +2,8 @@
 <head>
   <meta charset="UTF-8">
   <title>voicefy - your audio task manager</title>
+  <link href="styles/app.css" rel="stylesheet" type="text/css">
+  <link href="styles/install-button.css" rel="stylesheet" type="text/css">  
 </head>
 <body>
   Create a new task.<br>
@@ -21,13 +23,42 @@
     </ul>
     <hr>
     <ul>
-    <% users.forEach(function(user) { %>
       <li>
-      <%= user.username %>
-      <%= user.password %>
-      <img src="<%= user.profileImage %>">      
+      <%= users[0].username %>
+      <%= users[0].password %>
+      <img class="profile" src="<%= users[0].profileImage %>">      
       </li>
-    <% }) %>
     </ul>
+
+    <div class="wrapper">
+
+      <section class="main-controls">
+        <canvas class="visualizer"></canvas>
+        <div id="buttons">
+          <button class="record">Record</button>
+          <button class="stop">Stop</button>
+        </div>
+      </section>
+
+      <section class="sound-clips">
+
+        <!-- This is left here as a helper for testing the style of the clips
+        If you want to edit their appearance without having to record clips,
+        uncomment this and reload the page. Remember to comment it again when done!
+        <article class="clip">
+          <audio controls></audio>
+          <p>Sample clip name</p>
+          <button class="delete">Delete</button>
+        </article>
+        -->
+
+      </section>
+
+    </div>
+  <aside>
+    <button id="install-btn">Install app</button>
+  </aside>    
+    <script type="text/javascript" src="./install.js"></script>
+   <script type="text/javascript" src="./app.js"></script>   
 </body>
 </html>

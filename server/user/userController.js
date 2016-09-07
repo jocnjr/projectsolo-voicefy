@@ -10,6 +10,10 @@ userController.getAllUsers = function(next) {
   User.find({}, next);
 };
 
+userController.getOneUser = function(user,next) {
+  User.findOne({username: user}, next);
+};
+
 userController.createUser = function(req, res, body) {
   // User.findOne({username: body.login}, function(err, user) {
   //   console.log('user already exists', user);
@@ -40,10 +44,10 @@ userController.verifyUser = function(req, res) {
         res.redirect('/timeline');
       }      
       else{
-        res.redirect('/signup');
+        res.redirect('/');
       }
     } else{
-      res.redirect('/signup');
+      res.redirect('/');
     } 
 })
    

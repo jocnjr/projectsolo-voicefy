@@ -24,12 +24,12 @@ sessionController.isLoggedIn = function(req, res, next) {
   		}
   		else {
   			console.log('not active anymore', req.cookies)
-  			res.redirect('/signup');
+  			res.redirect('/');
   		}
   	}
   	else {
       console.log('github adventure', session);
-  		res.redirect('/signup');
+  		res.redirect('/');
   		}
 	});
   
