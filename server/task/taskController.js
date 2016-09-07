@@ -2,16 +2,16 @@ var Task = require('./taskModel');
 
 var taskController = {};
 
-taskController.getAllUsers = function(next) {
+taskController.getAllTasks = function(next) {
   Task.find({}, next);
 };
 
 taskController.createTask = function(req, res, body) {
-
-  var newtask = new Task();
-  console.log
+  console.log(req.body.title);
+  var newTask = new Task();
   newTask.title = req.body.title;
   newTask.audioClip = req.body.audioClip;
+  newTask.author = req.body.author;  
   newTask.save(function(err){
     if (err) throw err;
   });

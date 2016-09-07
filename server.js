@@ -61,12 +61,17 @@ app.post('/createTask', taskController.createTask);
 
 app.get('/timeline', sessionController.isLoggedIn, function(req, res) {
 
-  userController.getAllUsers(function(err, users) {
+  taskController.getAllTasks(function(err, tasks) {
+    var allUsers = [];
+    userController.getAllUsers(function(err, users) {
     if (err) throw err;
-    res.render('./../client/timeline', { users: users });
+    allUsers.push(users);
+    });
+    console.log(allUsers, tasks);
+    if (err) throw err;
+    res.render('./../client/timeline', { tasks: tasks, users: allUsers });
   });
-}
-);
+});
 
 app.get('/oauth', function(req, res) {
   var state = "thisismysoloproject";
