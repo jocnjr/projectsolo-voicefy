@@ -1,0 +1,17 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Unit-11S-Authentication</title>
+</head>
+<body>
+  Secret page
+    <ul>
+    <% users.forEach(function(user) { %>
+      <li>
+      <%= user.username %>
+      <%= user.password %>
+      </li>
+    <% }) %>
+    </ul>
+</body>
+</html>
