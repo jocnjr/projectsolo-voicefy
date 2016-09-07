@@ -9,6 +9,7 @@ const querystring = require('querystring');
 const userController = require('./server/user/userController');
 const cookieController = require('./server/util/cookieController');
 const sessionController = require('./server/session/sessionController');
+const taskController = require('./server/task/taskController');
 const request = require('request');
 
 app.use(express.static(path.join(__dirname, './client')));
@@ -24,6 +25,15 @@ app.set('view engine', 'ejs');
 //parsing the body and adding to the req
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+//error handling
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: err
+  });
+});
 
 //handling cookies for all requests
 app.use(cookieParser(), cookieController.setCookie);
@@ -44,6 +54,9 @@ app.post('/signup', userController.createUser);
 
 app.post('/login', userController.verifyUser);
 
+//createTask
+app.post('/createTask', taskController.createTask);
+
 //timeline 
 
 app.get('/timeline', sessionController.isLoggedIn, function(req, res) {
@@ -55,8 +68,9 @@ app.get('/timeline', sessionController.isLoggedIn, function(req, res) {
 }
 );
 
-app.get('/oauth', function(req, res){
+app.get('/oauth', function(req, res) {
   var state = "thisismysoloproject";
+  console.log(req.query);
   if(req.query.state.toString() === state ){
     console.log(state);
     var tokenQuery = {
@@ -86,10 +100,13 @@ app.get('/oauth', function(req, res){
         },
         json:true
       }
+      // next();
       request(options, function(err,resp, body){
-        console.log('body ', body);
-         res.redirect('/timeline');
+        // console.log('body ', body);
+        userController.createUser(req,res, body);
+        // res.redirect('/timeline');
       })
+
 
     })
   }
