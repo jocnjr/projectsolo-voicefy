@@ -279,3 +279,13 @@ ul {
 	margin: 40px auto;
 	border-width: 1px 0 0;
 }
+
+.tasksForm {
+  padding: 5px;
+}
+
+p {
+  color: #EEE;
+  font-size: 12px;
+  padding: 5px;
+}

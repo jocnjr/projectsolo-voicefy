@@ -6,13 +6,15 @@
   <link href="styles/install-button.css" rel="stylesheet" type="text/css">  
 </head>
 <body>
-  Create a new task.<br>
+  <p>Create a new task.</p><br>
+  <div class="tasksForm">
   <form method="POST" action='/createTask'>
     <input name="title" type="text" placeholder="title"></input>
     <input name="audioClip" type="upload" placeholder="description"></input>
     <input type="hidden" name="author" value="jocnjr"></input>
     <input type='submit' value="create">
   </form>
+  </div>
   <div class="tasks">
       <ul>
     <% tasks.forEach(function(task) { %>

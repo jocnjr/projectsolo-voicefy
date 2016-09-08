@@ -28,6 +28,13 @@ body {
 	margin: 0 auto;
 	line-height: 144px;
 	font-weight: 500;
+	background: url(ico-github.png);
+	background-repeat: no-repeat;
+	background-position-x: 280px;
+	background-position-y: 50px;	
+	background-size: 50px;
+	padding: 0 25;
+
 }
 
 button:focus {outline:0;}
@@ -49,13 +56,15 @@ button:focus {outline:0;}
 }*/
 
 .superB:hover {
-	color: #563d7c;
-	background: white;
+	color: white;
+	background: url(ico-github-inverted.png);
+	background-color: black;
+	background-repeat: no-repeat;
+	background-position-x: 280px;
+	background-position-y: 50px;	
+	background-size: 50px;
 }
 
-.little-hr {
-	border-color: #EEE;
-	width: 100px;
-	margin: 40px auto;
-	border-width: 1px 0 0;
+img {
+	background: url(ico-github.png);
 }
